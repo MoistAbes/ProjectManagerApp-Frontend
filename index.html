@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <title>Project manager application</title>
+  </head>
+  <body>
+    <p>something typing im trying my best</p>
+    <p class="test">its saving</p>
+
+    <div class="taskFormContainer">
+      <form>
+        <label for="taskTitle">Tytuł:</label>
+        <br />
+        <input type="text" id="taskTitle" />
+        <br />
+        <label for="content">Treść:</label>
+        <br />
+        <textarea
+          type="text"
+          id="tastContent"
+          name="content"
+          cols="50"
+          rows="4"
+        ></textarea>
+
+        <br></br>
+
+        <label>Priorytet</label>
+        <br></br>
+        <select name="priority" id="taskPriority">
+          <option value="Pilne">Pilne</option>
+          <option value="Ważne">Ważne</option>
+          <option value="Średni">Średni</option>
+          <option value="Niski">Niski</option>
+        </select>
+
+        <br></br>
+
+        <label>Status</label>
+        <br></br>
+        <select name="status" id="taskStatus">
+          <option value="To do">To do</option>
+          <option value="In progress">In progress</option>
+          <option value="Quality assurance">Quality assurance</option>
+          <option value="Done">Done</option>
+        </select>
+
+        <br />
+
+        <label for="startDateInput">Start date:</label>
+        <input type="date" id="startDateInput" name="startDate">
+         <label for="endDateInput">End date:</label>
+        <input type="date" id="endDateInput" name="endDate">
+
+        <input type="submit" value="dodaj" id="addTaskButton" />
+      </form>
+    </div>
+
+    <br />
+
+    <button id="tasksButton">Zadania</button>
+
+    <script src="script/jquery-3.6.1.min.js"></script>
+    <script src="script/script.js"></script>
+  </body>
+</html>

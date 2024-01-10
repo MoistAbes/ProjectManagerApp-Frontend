@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles/tasks.css" />
+    <title>Project manager application</title>
+  </head>
+  <body>
+    <h1 id="projectTitleId">project title</h1>
+    <button id="addTasksButton">dodaj zadania</button>
+    <button id="projectsButton">projects</button>
+
+    <div class="mainContainer" id="mainContainer">
+      <div class="taskContainer" id="toDoContainer">To do</div>
+      <div class="taskContainer" id="inProgressContainer">In progress</div>
+      <div class="taskContainer" id="qAContainer">QA</div>
+      <div class="taskContainer" id="doneContainer">Done</div>
+    </div>
+
+    <div id="divId"></div>
+
+    <!-- Task details modal -->
+    <div id="taskDetailsModal" class="modal">
+      <div id="taskDetails"></div>
+      <button id="closeDetailsButtonId">Close</button>
+    </div>
+
+    <form id="taskDetailsForm" class="taskDetailsForm">
+      <label id="taskTitleLabel" for="taskTitleInput">Title</label>
+      <br />
+      <input type="text" id="taskTitleInput" name="title" /><br /><br />
+
+      <label id="taskContentLabel" for="taskContentInput">Content</label>
+      <br />
+      <input type="text" id="taskContentInput" name="input" /><br /><br />
+
+      <label>Priorytet</label>
+        <br></br>
+        <select name="priority" id="taskPriorityInput">
+          <option value="Pilne">Pilne</option>
+          <option value="Ważne">Ważne</option>
+          <option value="Średni">Średni</option>
+          <option value="Niski">Niski</option>
+        </select>
+        <br></br>
+
+      <label id="taskStatusLabel" for="taskStatusInput">Status</label>
+      <br />
+      <select name="status" id="taskStatusInput">
+        <option value="To do">To do</option>
+        <option value="In progress">In progress</option>
+        <option value="Quality assurance">Quality assurance</option>
+        <option value="Done">Done</option></select
+      ><br />
+
+      <label for="progressInput">% Progress</label>
+      <input type="number" id="progressInput" name="progress" min="0" max="100" step="1">
+
+      <label for="startDateInput">Start date</label>
+      <input type="date" id="startDateInput" name="startDate" />
+      <label for="endDateInput">End date</label>
+      <input type="date" id="endDateInput" name="endDate" />
+
+      <input id="taskDetailsSubmit" type="submit" value="Submit" />
+    </form>
+
+    <!-- Overlay to cover the page when the modal is open -->
+    <div id="overlay" class="overlay"></div>
+
+    <script src="script/jquery-3.6.1.min.js"></script>
+    <script src="script/script_tasks.js"></script>
+  </body>
+</html>

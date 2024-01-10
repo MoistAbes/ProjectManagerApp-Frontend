@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .task {
+        cursor: pointer;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        z-index: 1000;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+    </style>
+    <title>Task Details Modal Example</title>
+  </head>
+  <body>
+    <!-- Sample task list -->
+    <div class="task" onclick="showTaskDetails(1)">Task 1</div>
+    <div class="task" onclick="showTaskDetails(2)">Task 2</div>
+    <div class="task" onclick="showTaskDetails(3)">Task 3</div>
+
+    <!-- Task details modal -->
+    <div id="taskDetailsModal" class="modal">
+      <div id="taskDetails"></div>
+      <button onclick="closeTaskDetails()">Close</button>
+    </div>
+
+    <!-- Overlay to cover the page when the modal is open -->
+    <div id="overlay" class="overlay"></div>
+
+    <script>
+      function showTaskDetails(taskId) {
+        var taskDetailsContainer = document.getElementById("taskDetails");
+        taskDetailsContainer.innerHTML =
+          "Loading details for Task " + taskId + "...";
+
+        // Simulating an asynchronous request (replace this with an actual AJAX call)
+        setTimeout(function () {
+          var taskDetails =
+            "Details for Task " + taskId + ": Lorem ipsum dolor sit amet.";
+
+          // Update task details container
+          taskDetailsContainer.innerHTML = taskDetails;
+
+          // Show the overlay and modal
+          document.getElementById("overlay").style.display = "block";
+          document.getElementById("taskDetailsModal").style.display = "block";
+        }, 1000); // Simulating a delay for demonstration purposes
+      }
+
+      function closeTaskDetails() {
+        // Hide the overlay and modal
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("taskDetailsModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

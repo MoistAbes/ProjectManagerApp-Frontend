@@ -1,0 +1,82 @@
+div.taskBox {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
+    border: 5px solid #0adb3e;
+    outline-color: rgb(71, 12, 126);
+    display: inline-block;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    outline-color: blueviolet;
+}
+
+textarea {
+    tab-size: 20%;
+}
+
+body {
+    background-color: rgba(126, 134, 160, 0.726);
+
+}
+
+.taskDetailsForm {
+    display: none;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* Adjust column width */
+    justify-content: center;
+    /* Align horizontally */
+    gap: 10px;
+    /* Adjust gap between elements */
+}
+
+div.taskFormContainer {
+    border: 3px solid rgb(94, 202, 179);
+    background-color: rgb(94, 153, 187);
+    display: inline-block;
+    margin: 2px;
+    padding: 2px;
+}
+
+.task {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ffffff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+ .container {
+     text-align: center;
+     margin-bottom: 20px;
+ }

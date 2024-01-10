@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Welcome to Our Project Page</h1>
+      <a href="#" id="createProjectButtonId" class="btn-create-project"
+        >Create Project</a
+      >
+      <ul class="project-list" id="projectListId">
+        <p>Projects</p>
+        <li class="projectItem">Project Title 1</li>
+       
+        <!-- Add more project titles as needed -->
+      </ul>
+    </div>
+
+    <!-- Task details modal -->
+    <div id="taskDetailsModal" class="modal">
+      <div id="taskDetails">
+        <form id="taskDetailsForm" class="taskDetailsForm">
+          <h1>Create project</h1>
+          <label id="projectTitleLabel" for="projectTitleInputId">Title</label>
+          <br />
+          <input
+            type="text"
+            id="projectTitleInputId"
+            name="title"
+          /><br /><br />
+          <input id="projectDetailsSubmit" type="submit" value="Submit" />
+        </form>
+        <button id="closeDetailsButtonId">Close</button>
+      </div>
+    </div>
+
+    <!-- Overlay to cover the page when the modal is open -->
+    <div id="overlay" class="overlay"></div>
+
+    <script src="script/jquery-3.6.1.min.js"></script>
+    <script src="script/create_project_page_script.js"></script>
+  </body>
+</html>
