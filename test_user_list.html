@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Buttons Between Lists</title>
+    <style>
+      /* Add some basic styling to the lists */
+      #originalList,
+      #newList {
+        list-style: none;
+        padding: 0;
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+        border: 1px solid #ccc; /* Add a border for clarity */
+        width: 200px; /* Set a fixed width for the lists */
+        display: none; /* Initially hide the lists */
+      }
+
+      /* Style for the buttons */
+      button {
+        padding: 10px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a button to toggle both lists -->
+    <button onclick="toggleLists()">Toggle Lists</button>
+
+    <!-- Create the original unordered list of buttons -->
+    <ul id="originalList">
+      <!-- Buttons will be dynamically added here -->
+    </ul>
+
+    <!-- Create the new unordered list of buttons -->
+    <ul id="newList">
+      <!-- Buttons will be dynamically added here -->
+    </ul>
+
+    <script>
+      // Function to toggle the visibility of both lists
+      function toggleLists() {
+        const originalList = document.getElementById("originalList");
+        const newList = document.getElementById("newList");
+
+        // Toggle the 'display' property between 'none' and 'block' for both lists
+        originalList.style.display =
+          originalList.style.display === "none" ||
+          originalList.style.display === ""
+            ? "block"
+            : "none";
+        newList.style.display =
+          newList.style.display === "none" || newList.style.display === ""
+            ? "block"
+            : "none";
+      }
+
+      // Function to move a button from the original list to the new list
+      function moveButton(buttonText) {
+        const originalList = document.getElementById("originalList");
+        const newList = document.getElementById("newList");
+
+        // Find the button in the original list
+        const buttonToRemove = Array.from(
+          originalList.querySelectorAll("button")
+        ).find((button) => button.textContent === buttonText);
+
+        if (buttonToRemove) {
+          // Remove the button from the original list
+          originalList.removeChild(buttonToRemove.parentNode);
+
+          // Create a new button with the same text in the new list
+          const newButton = document.createElement("button");
+          newButton.textContent = buttonText;
+          newButton.onclick = () => moveBackButton(buttonText);
+
+          // Create a new list item and append the new button to the new list
+          const li = document.createElement("li");
+          li.appendChild(newButton);
+          newList.appendChild(li);
+        }
+      }
+
+      // Function to move a button back from the new list to the original list
+      function moveBackButton(buttonText) {
+        const originalList = document.getElementById("originalList");
+        const newList = document.getElementById("newList");
+
+        // Find the button in the new list
+        const buttonToRemove = Array.from(
+          newList.querySelectorAll("button")
+        ).find((button) => button.textContent === buttonText);
+
+        if (buttonToRemove) {
+          // Remove the button from the new list
+          newList.removeChild(buttonToRemove.parentNode);
+
+          // Create a new button with the same text in the original list
+          const newButton = document.createElement("button");
+          newButton.textContent = buttonText;
+          newButton.onclick = () => moveButton(buttonText);
+
+          // Create a new list item and append the new button to the original list
+          const li = document.createElement("li");
+          li.appendChild(newButton);
+          originalList.appendChild(li);
+        }
+      }
+
+      // Example JavaScript function to handle button clicks in the original list
+      function buttonClicked(buttonText) {
+        alert("Button clicked: " + buttonText);
+        // Move the clicked button to the new list
+        moveButton(buttonText);
+      }
+
+      // Example function to get the number of buttons (replace this with your logic)
+      function getNumberOfButtons() {
+        return 5; // Change this number as needed
+      }
+
+      // Initialize the original list with buttons
+      const originalList = document.getElementById("originalList");
+      const buttonCount = getNumberOfButtons();
+      for (let i = 1; i <= buttonCount; i++) {
+        const button = document.createElement("button");
+        button.textContent = "Button " + i;
+        button.onclick = () => buttonClicked("Button " + i);
+        const li = document.createElement("li");
+        li.appendChild(button);
+        originalList.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

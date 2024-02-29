@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var apiRoot = 'http://localhost:8080/projects';
+    var apiRoot = 'http://localhost:8081/projects';
     const projectList = document.querySelector('#projectListId');
 
 
@@ -53,23 +53,7 @@ $(document).ready(function () {
     }
 
 
-    function handleTaskSubmitRequest(textTitle) {
-        $.ajax({
-            url: apiRoot,
-            method: 'POST',
-            processData: false,
-            contentType: "application/json; charset=utf-8",
-            dataType: 'json',
-            data: JSON.stringify({
-                title: textTitle,
-            }),
-            complete: function (data) {
-                if (data.status === 200) {
-                    alert("succesfully added movie to favourites");
-                }
-            }
-        });
-    }
+
 
 
     $("#createProjectButtonId").click(function () {
@@ -84,10 +68,34 @@ $(document).ready(function () {
         var inputProjectTitle = $('#projectTitleInputId');
         var inputProjectTitleValue = inputProjectTitle.val();
         console.log("Saved title: " + inputProjectTitleValue);
+        var users = [];
 
-        handleTaskSubmitRequest(inputProjectTitleValue);
+        hideOverlayAndModal();
+
+        handleTaskSubmitRequest(inputProjectTitleValue, users);
 
     });
+
+
+    function handleTaskSubmitRequest(textTitle, users) {
+        $.ajax({
+            url: apiRoot,
+            method: 'POST',
+            processData: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify({
+                title: textTitle,
+                usersId: users
+            }),
+            complete: function (data) {
+                if (data.status === 200) {
+                    alert("succesfully added movie to favourites");
+                }
+            }
+        });
+    }
+
     $("#closeDetailsButtonId").click(function () {
         // Hide the overlay and modal
         document.getElementById("overlay").style.display = "none";
@@ -97,10 +105,12 @@ $(document).ready(function () {
 
 
 
+    function hideOverlayAndModal() {
+        // Hide the overlay and modal
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("taskDetailsModal").style.display = "none";
+    }
 
-    // Hide the overlay and modal
-    // document.getElementById("overlay").style.display = "none";
-    // document.getElementById("taskDetailsModal").style.display = "none";
 
 
 });

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/members.css" />
+    <script
+      src="https://kit.fontawesome.com/49e6044a31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <button id="projectsButton">
+        <i class="fa fa-home"></i>
+        <span class="hover-text">Projekty</span>
+      </button>
+      <button id="addUserButton">
+        <i class="fa-solid fa-user-plus"></i>
+        <span class="hover-text">Dodaj członka</span>
+      </button>
+    </div>
+
+    <div class="content">
+      <!-- <p>Main content goes here</p> -->
+      <h1 id="projectTitleId"></h1>
+      <button id="boardButton" class="hover-button">Tablica</button>
+      <button id="chartsButton" class="hover-button">Oś czasu</button>
+      <button id="analiticsButton" class="hover-button">Analityka</button>
+      <button id="membersButton" class="hover-button">Człownkowie</button>
+
+      <div class="mainContainer" id="mainContainer"></div>
+
+      <!-- Task details modal -->
+      <div id="taskDetailsModal" class="modal">
+        <button class="closeButton" id="closeDetailsButtonId">X</button>
+        <div id="taskDetails"></div>
+      </div>
+
+      <form
+        id="taskDetailsForm"
+        data-backdrop="static"
+        data-keyboard="false"
+        class="taskDetailsForm"
+      >
+        <div id="upperBoxId">
+          <div id="leftUpperBox">
+            <label id="taskTitleLabel" for="taskTitleInput">Tytuł</label>
+            <br />
+            <input readonly type="text" id="taskTitleInput" name="title" />
+            <br />
+
+            <label>Priorytet</label>
+            <br />
+
+            <select disabled name="priority" id="taskPriorityInput">
+              <option value="Pilne">Pilne</option>
+              <option value="Ważne">Ważne</option>
+              <option value="Średni">Średni</option>
+              <option value="Niski">Niski</option>
+            </select>
+            <br />
+            <label for="progressInput">% Postęp</label>
+            <br />
+            <input
+              readonly
+              type="number"
+              id="progressInput"
+              name="progress"
+              min="0"
+              max="100"
+              step="1"
+            />
+            <br />
+            <label for="startDateInput">Data rozpoczęcia</label>
+            <br />
+
+            <input readonly type="date" id="startDateInput" name="startDate" />
+          </div>
+
+          <div id="rightUpperBox">
+            <label id="taskContentLabel" for="taskContentInput">Opis</label>
+            <br />
+            <input readonly type="text" id="taskContentInput" name="content" />
+            <br />
+
+            <label id="taskStatusLabel" for="taskStatusInput">Przedział</label>
+            <br />
+            <select disabled name="status" id="taskStatusInput"></select>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <label for="endDateInput">Data zakończenia</label>
+            <br />
+            <input readonly type="date" id="endDateInput" name="endDate" />
+          </div>
+        </div>
+      </form>
+
+      <!-- Overlay to cover the page when the modal is open -->
+      <div id="overlay" class="overlay"></div>
+    </div>
+
+    <script src="script/jquery-3.6.1.min.js"></script>
+    <script src="script/members.js"></script>
+  </body>
+</html>

@@ -3,38 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="styles/create_project_page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
   </head>
 
   <body>
     <div class="container">
-      <h1>Welcome to Our Project Page</h1>
+      <h1 class="title">Aplikacja wspomagająca zarządznie projektami</h1>
       <a href="#" id="createProjectButtonId" class="btn-create-project"
-        >Create Project</a
+        >Stwórz projekt</a
       >
+      <p class="projectsLabel">PROJEKTY</p>
       <ul class="project-list" id="projectListId">
-        <p>Projects</p>
-        <li class="projectItem">Project Title 1</li>
-       
+        <!-- <li class="projectItem">Project Title 1</li> -->
+
         <!-- Add more project titles as needed -->
       </ul>
     </div>
 
     <!-- Task details modal -->
     <div id="taskDetailsModal" class="modal">
+      <button
+        class="closeButton"
+        id="closeDetailsButtonId"
+        style="float: right"
+      >
+        X
+      </button>
       <div id="taskDetails">
         <form id="taskDetailsForm" class="taskDetailsForm">
-          <h1>Create project</h1>
-          <label id="projectTitleLabel" for="projectTitleInputId">Title</label>
+          <!-- <h1>Stwórz projekt</h1> -->
+          <label id="projectTitleLabel" for="projectTitleInputId">Nazwa</label>
           <br />
           <input
             type="text"
             id="projectTitleInputId"
             name="title"
           /><br /><br />
-          <input id="projectDetailsSubmit" type="submit" value="Submit" />
+          <input
+            id="projectDetailsSubmit"
+            class="saveButton"
+            type="submit"
+            value="Stwórz"
+          />
         </form>
-        <button id="closeDetailsButtonId">Close</button>
+        <!-- <button id="closeDetailsButtonId" class="closeButton">X</button> -->
       </div>
     </div>
 

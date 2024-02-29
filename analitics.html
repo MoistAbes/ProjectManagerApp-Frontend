@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Chart.js example</title>
+    <link rel="stylesheet" href="styles/analitics.css" />
+    <script
+      src="https://kit.fontawesome.com/49e6044a31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <button id="projectsButton">
+        <i class="fa fa-home"></i>
+        <span class="hover-text">Projekty</span>
+      </button>
+    </div>
+
+    <div class="content">
+      <!-- <p>Main content goes here</p> -->
+      <h1 id="projectTitleId"></h1>
+      <button id="boardButton" class="hover-button">Tablica</button>
+      <button id="chartsButton" class="hover-button">Oś czasu</button>
+      <button id="analiticsButton" class="hover-button">Analityka</button>
+      <button id="membersButton" class="hover-button">Członkowie</button>
+
+      <div class="mainContainer" id="mainContainer">
+        <div id="chartContainer">
+          <h1>Stan</h1>
+          <div style="width: 800px; height: 400px">
+            <canvas class="chartCanva" id="acquisitions"></canvas>
+          </div>
+        </div>
+
+        <div id="chartContainer">
+          <h1>Przedziały</h1>
+          <div style="width: 900px; height: 400px">
+            <canvas class="chartCanva" id="sectionChartId"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-left: 50px" id="chartContainer">
+        <h1>Nakład godzin na pracownika</h1>
+        <div style="width: 50%; height: 400px">
+          <canvas class="chartCanva" id="usersTasksChartId"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script type="module" src="dimensions.js"></script> -->
+    <script type="module" src="script//acquisitions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script/jquery-3.6.1.min.js"></script>
+  </body>
+</html>

@@ -5,69 +5,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles/tasks.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/49e6044a31.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Project manager application</title>
   </head>
   <body>
-    <h1 id="projectTitleId">project title</h1>
-    <button id="addTasksButton">dodaj zadania</button>
-    <button id="projectsButton">projects</button>
-
-    <div class="mainContainer" id="mainContainer">
-      <div class="taskContainer" id="toDoContainer">To do</div>
-      <div class="taskContainer" id="inProgressContainer">In progress</div>
-      <div class="taskContainer" id="qAContainer">QA</div>
-      <div class="taskContainer" id="doneContainer">Done</div>
+    <div class="sidebar">
+      <button id="projectsButton">
+        <i class="fa fa-home"></i>
+        <span class="hover-text">Projekty</span>
+      </button>
+      <button id="addSectionButton">
+        <i class="fa-regular fa-clipboard"></i>
+        <span class="hover-text">Dodaj przedział</span>
+      </button>
+      <button id="addTasksButton">
+        <i class="fa-regular fa-note-sticky"></i>
+        <span class="hover-text">Dodaj zadanie</span>
+      </button>
+      <!-- <button>Button 4</button> -->
     </div>
 
-    <div id="divId"></div>
+    <div class="content">
+      <!-- <p>Main content goes here</p> -->
+      <h1 id="projectTitleId"></h1>
+      <button id="boardButton" class="hover-button">Tablica</button>
+      <button id="chartsButton" class="hover-button">Oś czasu</button>
+      <button id="analiticsButton" class="hover-button">Analityka</button>
+      <button id="membersButton" class="hover-button">Członkowie</button>
 
-    <!-- Task details modal -->
-    <div id="taskDetailsModal" class="modal">
-      <div id="taskDetails"></div>
-      <button id="closeDetailsButtonId">Close</button>
+      <div class="mainContainer" id="mainContainer"></div>
+
+      <div id="divId"></div>
+
+      <!-- Task details modal -->
+      <div id="taskDetailsModal" class="modal">
+        <button class="closeButton" id="closeDetailsButtonId">X</button>
+        <div id="taskDetails"></div>
+        <button id="deleteTaskButtonId" class="deleteButton">Usuń</button>
+      </div>
+
+      <!-- Section details modal -->
+      <div id="sectionDetailsModal" class="modal">
+        <button
+          id="closeSectionDetailsButtonId"
+          class="closeButton"
+          style="float: inline-end"
+        >
+          X
+        </button>
+        <div id="sectionDetails"></div>
+        <button id="deleteSectionButtonId" class="deleteButton">Usuń</button>
+      </div>
+
+      <form
+        id="sectionDetailsForm"
+        data-backdrop="static"
+        data-keyboard="false"
+        class="sectionDetailsForm"
+      >
+        <label id="sectionTitleLabel" for="sectionTitleInput">Tytuł</label>
+        <br />
+        <input type="text" id="sectionTitleInputId" name="title" /><br /><br />
+        <input
+          id="sectionDetailsSubmit"
+          class="saveButton"
+          type="submit"
+          value="Zapisz"
+          width="218"
+        />
+      </form>
+
+      <form
+        id="taskDetailsForm"
+        data-backdrop="static"
+        data-keyboard="false"
+        class="taskDetailsForm"
+      >
+        <div id="upperBoxId">
+          <div id="leftUpperBox">
+            <label id="taskTitleLabel" for="taskTitleInput">Tytuł</label>
+            <br />
+            <input type="text" id="taskTitleInput" name="title" />
+            <br />
+
+            <label>Priorytet</label>
+            <br />
+
+            <select name="priority" id="taskPriorityInput">
+              <option value="Pilne">Pilne</option>
+              <option value="Ważne">Ważne</option>
+              <option value="Średni">Średni</option>
+              <option value="Niski">Niski</option>
+            </select>
+            <br />
+            <label for="progressInput">% Postęp</label>
+            <br />
+            <input
+              type="number"
+              id="progressInput"
+              name="progress"
+              min="0"
+              max="100"
+              step="1"
+            />
+            <br />
+            <label for="startDateInput">Data rozpoczęcia</label>
+            <br />
+
+            <input type="date" id="startDateInput" name="startDate" />
+          </div>
+
+          <div id="rightUpperBox">
+            <label id="taskContentLabel" for="taskContentInput">Opis</label>
+            <br />
+            <input type="text" id="taskContentInput" name="content" />
+            <br />
+
+            <label id="taskStatusLabel" for="taskStatusInput">Przedział</label>
+            <br />
+            <select name="status" id="taskStatusInput"></select>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <label for="endDateInput">Data zakończenia</label>
+            <br />
+            <input type="date" id="endDateInput" name="endDate" />
+          </div>
+        </div>
+
+        <div class="horizontal-stack">
+          <div id="userDiv">
+            <label class="titleLabel">Użytkownicy</label>
+            <br />
+            <label>Nieprzydzieleni</label>
+            <ul id="unassignedUsersList"></ul>
+            <label>Przydzieleni</label>
+            <ul id="assignedUsersList"></ul>
+          </div>
+          <div id="tasksDiv">
+            <label class="titleLabel">Zadania</label>
+            <br />
+            <label>Niezalezne</label>
+            <ul id="notDependentTaskList"></ul>
+            <label>Zalezne</label>
+            <ul id="dependentTaskList"></ul>
+          </div>
+        </div>
+
+        <!-- <input id="taskDetailsSubmit" type="submit" value="Submit" />       -->
+        <button class="saveButton" id="taskDetailsSubmit">Zapisz</button>
+      </form>
+
+      <!-- Overlay to cover the page when the modal is open -->
+      <div id="overlay" class="overlay"></div>
     </div>
-
-    <form id="taskDetailsForm" class="taskDetailsForm">
-      <label id="taskTitleLabel" for="taskTitleInput">Title</label>
-      <br />
-      <input type="text" id="taskTitleInput" name="title" /><br /><br />
-
-      <label id="taskContentLabel" for="taskContentInput">Content</label>
-      <br />
-      <input type="text" id="taskContentInput" name="input" /><br /><br />
-
-      <label>Priorytet</label>
-        <br></br>
-        <select name="priority" id="taskPriorityInput">
-          <option value="Pilne">Pilne</option>
-          <option value="Ważne">Ważne</option>
-          <option value="Średni">Średni</option>
-          <option value="Niski">Niski</option>
-        </select>
-        <br></br>
-
-      <label id="taskStatusLabel" for="taskStatusInput">Status</label>
-      <br />
-      <select name="status" id="taskStatusInput">
-        <option value="To do">To do</option>
-        <option value="In progress">In progress</option>
-        <option value="Quality assurance">Quality assurance</option>
-        <option value="Done">Done</option></select
-      ><br />
-
-      <label for="progressInput">% Progress</label>
-      <input type="number" id="progressInput" name="progress" min="0" max="100" step="1">
-
-      <label for="startDateInput">Start date</label>
-      <input type="date" id="startDateInput" name="startDate" />
-      <label for="endDateInput">End date</label>
-      <input type="date" id="endDateInput" name="endDate" />
-
-      <input id="taskDetailsSubmit" type="submit" value="Submit" />
-    </form>
-
-    <!-- Overlay to cover the page when the modal is open -->
-    <div id="overlay" class="overlay"></div>
 
     <script src="script/jquery-3.6.1.min.js"></script>
     <script src="script/script_tasks.js"></script>

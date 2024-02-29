@@ -1,0 +1,134 @@
+
+body, html {
+            font-family: 'Roboto', sans-serif;
+}
+
+.gantt-container {
+    width: 90vw;
+    margin: 0 auto;
+    height: 40vw;
+        border: 2px solid #cccccc;
+            /* 2px solid black border */
+}
+
+
+/** custom popup  */
+.details-container {
+    width: 150px;
+    background-color: #fff;
+    color: #434141;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.details-container>h5,
+.details-container>p {
+    border-top: 2px solid #ddd;
+    margin: 0;
+    padding: 10px;
+    font-size: 0.7rem;
+}
+
+.details-container>h5 {
+    border-top: none;
+}
+
+  .hover-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      /* transition: background-color 0.3s ease; */
+  }
+
+  .hover-button:hover {
+      background-color: #b3b3b3;
+      /* Change this to the desired hover background color */
+  }
+
+  .sidebar {
+      height: 100%;
+      width: 60px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      /* Sidebar background color */
+      padding-top: 20px;
+  }
+
+  .sidebar button {
+      display: block;
+      width: 50px;
+      height: 50px;
+      /* Adjust the height based on your icon size */
+      background-color: transparent;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      /* Added position relative */
+  }
+
+  .sidebar button:hover {
+      background-color: #777;
+      /* Hover background color */
+  }
+
+  .content {
+      margin-left: 50px;
+      /* Adjust margin to match the sidebar width */
+      padding: 16px;
+  }
+
+  .sidebar button i {
+      font-size: 24px;
+      /* Adjust the icon size */
+  }
+
+  .sidebar button .hover-text {
+      display: none;
+      font-size: 12px;
+      margin-top: 5px;
+      background-color: #374daf;
+      /* Adjust the background color as needed */
+      padding: 5px;
+      /* Adjust the padding as needed */
+      border-radius: 5px;
+      /* Optional: Add rounded corners */
+      position: absolute;
+      top: 0;
+      left: 100%;
+      /* Position to the right of the button */
+      margin-left: 10px;
+      /* Optional: Add some spacing */
+  }
+
+  .sidebar button:hover .hover-text {
+      display: inline-block;
+  }
+
+  /* Style for the buttons */
+  button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+  }
+
+  .viewModeContainer {
+        padding: 10px;
+        margin: 5px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    margin-left: auto;  }
+  select {
+    padding: 5px;
+  }
+
+  .topMenu {
+        display: flex;
+  }

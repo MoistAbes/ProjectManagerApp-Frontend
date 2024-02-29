@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="dist/frappe-gantt.min.css" />
+    <link rel="stylesheet" href="styles/charts.css" />
+    <script
+      src="https://kit.fontawesome.com/49e6044a31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <button id="projectsButton">
+        <i class="fa fa-home"></i>
+        <span class="hover-text">Projekty</span>
+      </button>
+    </div>
+
+    <div class="content">
+      <!-- <p>Main content goes here</p> -->
+      <h1 id="projectTitleId"></h1>
+      <div class="topMenu">
+        <div>
+          <button id="boardButton" class="hover-button">Tablica</button>
+          <button id="chartsButton" class="hover-button">Oś czasu</button>
+          <button id="analiticsButton" class="hover-button">Analityka</button>
+          <button id="membersButton" class="hover-button">Członkowie</button>
+        </div>
+
+        <div class="viewModeContainer">
+          <label for="viewMode">Widok</label>
+          <select id="viewMode">
+            <option value="day">Dzień</option>
+            <option value="week">Tydzień</option>
+            <option value="month">Miesiąc</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="topMenu">
+        <svg id="gantt"></svg>
+      </div>
+    </div>
+
+    <script src="script/jquery-3.6.1.min.js"></script>
+    <script src="script/charts.js"></script>
+    <script src="dist/frappe-gantt.min.js"></script>
+  </body>
+</html>
